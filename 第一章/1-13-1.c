@@ -34,7 +34,7 @@ int main()
         }
         else
         {
-            if (charNumber < MAXLENGTH)
+            if (charNumber <= MAXLENGTH)
             {
                 // 存入数组，下标从0 开始
                 wordLength[charNumber - 1]++;
@@ -68,7 +68,7 @@ int main()
     }
     if (overFlow > 0)
     {
-        printf("There are %d words >= %d\n", overFlow, MAXLENGTH);
+        printf("There are %d words > %d\n", overFlow, MAXLENGTH);
     }
     return 0;
 }
