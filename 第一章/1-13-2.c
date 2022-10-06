@@ -60,6 +60,7 @@ int main()
         for (int j = 0; j < MAXLENGTH; j++)
         {
             // 什么情况下这一列会打印 * ？
+            // 在第 i 行时，wordLength[j] 应该打印的星星数 >= 第 i 行，才会打印 '*' ;
             if (wordLength[j] * MAXSTAR / maxValue >= i)
                 printf("  * ");
             else
