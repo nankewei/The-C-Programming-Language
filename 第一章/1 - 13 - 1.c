@@ -4,8 +4,8 @@
 #define MAXSTAR 15   //可以打印的最大星星数量
 #define MAXLENGTH 10 //单词最大长度
 // 没用到 --！
-#define YES 1        //是单词
-#define NO 0         //不是单词
+#define YES 1 //是单词
+#define NO 0  //不是单词
 //打印水平方向的直方图
 int main()
 {
@@ -59,7 +59,12 @@ int main()
         printf("单词长度为 %5d - %5d : ", i + 1, wordLength[i]);
         // 找出该打印的星星数量比例
         len = wordLength[i] * MAXSTAR / maxValue; // 防止除0
-        // 打印星数
+        // int 会向下取整 15/16=0.93175  会取整为0
+        if ((len = wordLength[i] * MAXSTAR / maxValue) == 0 && wordLength[i] > 0)
+        {
+            len = 1;
+        }
+        // 打印星数 为0不执行
         while (len--)
         {
             putchar('*');
@@ -72,4 +77,3 @@ int main()
     }
     return 0;
 }
-
