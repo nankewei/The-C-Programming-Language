@@ -49,19 +49,24 @@ int main()
         // 次数
         if (wordLength[i] > maxValue)
             maxValue = wordLength[i];
-        // 频率最大的单词长度的星数 为 15 
+        // 频率最大的单词长度的星数 为 15
     }
     // 所以从 15 开始， i控制行
-    for (i = MAXSTAR; i > 0; i--)
+    for (i = MAXSTAR; i >= 0; i--)
     {
-        putchar('|');
-        // 控制列，列输出成一行
-        // j 控制列
+        // putchar('|');
+        //  控制列，列输出成一行
+        //  j 控制列
         for (int j = 0; j < MAXLENGTH; j++)
         {
             // 什么情况下这一列会打印 * ？
             // 在第 i 行时，wordLength[j] 应该打印的星星数 >= 第 i 行，才会打印 '*' ;
             if (wordLength[j] * MAXSTAR / maxValue >= i)
+                printf("  * ");
+            // 如果 15/16=0.93175 即 MAXSTAR / maxValue < 1 程序会向下取整 化为0，所以不会打印星号
+            // 增加判断语句 wordLength[j] * MAXSTAR / maxValue < 1 并且 wordLength[j]  > 0（也就是不为0）时
+            // 在第1行才会打印一个星号（有值的话至少要打印一个星号）
+            else if (wordLength[j] * MAXSTAR / maxValue < 1 && wordLength[j] > 0 && i == 1)
                 printf("  * ");
             else
                 printf("    ");
