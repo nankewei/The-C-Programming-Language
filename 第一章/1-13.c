@@ -6,7 +6,6 @@
 // 没用到 --！
 #define YES 1        //是单词
 #define NO 0         //不是单词
-
 //打印水平方向的直方图
 int main()
 {
