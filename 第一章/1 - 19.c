@@ -3,7 +3,7 @@
 #define LONGLINE 80
 int getLine(char line[], int maxLine);
 int reverse(char line[]);
-// 编写一个程序，删除每个输入行末尾的空格和制表符，并删除完全是空格的行。
+// 将字符串s中的字符顺序颠倒过来。使用该函数编写一个程序，每次颠倒一个输入行中的字符顺序。
 int main()
 {
     int len;            //当前行长度
