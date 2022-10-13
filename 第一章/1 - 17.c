@@ -34,7 +34,7 @@ int getLine(char line[], int maxLine)
     int c, i, j = 0;
     for (i = 0; (c = getchar()) != EOF && c != '\n'; i++)
     {
-        // 下标是0~999，用998存'\n' 999存'\0'
+        // 下标是0~999，如果有换行符 则用输入行长度的last but one 存'\n' last存'\0'，否则 直接用last 存'\0' 
         if (i < maxLine - 2)
         {
             line[j] = c;
@@ -45,7 +45,8 @@ int getLine(char line[], int maxLine)
     {
         line[j] = c;
         ++j;
-        // 这里i++ 是为了在最后添加 空字符'\0',代表读取结束
+        // 这里j++ 是为了在最后添加 空字符'\0',代表读取结束
+        //i为长度
         i++;
     }
     line[j] = '\0';
